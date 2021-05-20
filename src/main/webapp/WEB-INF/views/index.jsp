@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- jsp 페이지 선언부에 spring message를 사용 할 수 있도록 선언 -->
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,10 +48,11 @@
 	  </div>
 	</div>  
 	
-	 <div class="container">
-	    <h1><spring:message code="hello"></spring:message> </h1><!-- spring:message code="properties 키 쓰기"///message 태그명이 prefix= -->
-	  </div>
-   
+	 
+   <div class="container">
+   		<!-- spring:message code="properties의 key"  -->
+   		<h1><spring:message code="hello"></spring:message> </h1>
+   	</div>
 	<footer class="footer mt-auto py-3 bg-dark">
 	  <div class="container">
 	    <span class="text-muted">Place sticky footer content here.</span>
