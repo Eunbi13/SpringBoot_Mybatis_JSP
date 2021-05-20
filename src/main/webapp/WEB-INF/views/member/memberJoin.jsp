@@ -18,7 +18,11 @@
 	crossorigin="anonymous">
 
 <title>Hello, world!</title>
-
+<style type="text/css">
+.c1{
+	color:red;
+}
+</style>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -59,8 +63,7 @@
 	<div class="container">
 		<h1>MemberJoin Page "JSP"</h1>
 		<!-- FORM -->
-		<form:form id="frm" modelAttribute="memberVO" action="./join"
-			method="post">
+		<form:form id="frm" modelAttribute="memberVO" action="./join" method="post">
 			<div class="form-group">
 				<label for="exampleInputPassword1">UserName</label>
 				<form:input class="form-control" id="userName" path="userName"></form:input>
@@ -69,7 +72,7 @@
 			<div class="form-group">
 				<label for="exampleInputPassword1">Password</label>
 				<form:password class="form-control" id="password" path="password" />
-				<form:errors path="password"></form:errors>
+				<form:errors path="password" class="c1"></form:errors>
 			</div>
 			<!-- <div class="form-group">
 		    <label for="exampleInputPassword1">Password</label>
@@ -78,7 +81,7 @@
 			<div class="form-group">
 				<label for="exampleInputPassword1">Name</label>
 				<form:input class="form-control" id="name" path="name" />
-				<form:errors path="name"></form:errors>
+				<form:errors path="name" ></form:errors>
 				<!-- 비어있으면 x -->
 			</div>
 			<div class="form-group">
