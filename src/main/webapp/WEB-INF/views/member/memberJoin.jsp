@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!-- jsp 페이지 선언부에 spring message를 사용 할 수 있도록 선언 -->
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>  
+    <!-- spring form tag 사용 할 수 있도록 선언 -->
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,14 +49,45 @@
 	</div>  
 	
 	 
-   <div class="container">
-   		<!-- spring:message code="properties의 key"  -->
-   		<h1><spring:message code="hello1234" text="hihi"></spring:message>키가 없을 경우 기본 값 셋팅 </h1>
-   		<h1><spring:message code="hello"></spring:message> </h1>
-   		<h1><spring:message code="user.welcome" arguments="${user },${msg }" 
-   		argumentSeparator=","></spring:message> </h1>
-   		<!-- argumentSeparator : 기준을 말해라 -->
-   	</div>
+  <div class="container">
+		<h1>MemberJoin Page "JSP"</h1>
+	<!-- FORM -->
+		<form:form id="frm" modelAttribute="memberVO" action="./join" method="post">
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">UserName</label>
+		    <form:input class="form-control" id="userName" path="userName"></form:input>
+		    <!-- memberVO.userName 인것  -->
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">Password</label>
+		    <form:password class="form-control" id="password" path="password" />
+		  </div>
+		  <!-- <div class="form-group">
+		    <label for="exampleInputPassword1">Password</label>
+		    <input type="password" class="form-control" name="password">
+		  </div> -->
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">Name</label>
+		    <form:input class="form-control" id="name" path="name" />
+		    <form:errors path="name"></form:errors><!-- 비어있으면 x -->
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Email address</label>
+		    <form:input class="form-control" id="email" path="email" />
+		    <form:errors path="email"></form:errors>
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">Phone</label>
+		    <form:input class="form-control" id="phone" path="phone" />
+		  </div>
+	
+		  <button class="btn btn-primary">Submit</button>
+		</form:form>
+	</div>
+	
+	
+	
+	
 	<footer class="footer mt-auto py-3 bg-dark">
 	  <div class="container">
 	    <span class="text-muted">Place sticky footer content here.</span>
