@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+
   </head>
   <body>
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -43,10 +46,15 @@
 	    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
 	  </div>
 	</div>  
+	
+	 <div class="container">
+	    <h1><spring:message code="hello"></spring:message> </h1><!-- spring:message code="properties 키 쓰기"///message 태그명이 prefix= -->
+	  </div>
    
 	<footer class="footer mt-auto py-3 bg-dark">
 	  <div class="container">
 	    <span class="text-muted">Place sticky footer content here.</span>
+	    
 	  </div>
 	</footer>
 
