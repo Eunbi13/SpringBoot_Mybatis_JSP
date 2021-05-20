@@ -51,7 +51,11 @@
 	 
    <div class="container">
    		<!-- spring:message code="properties의 key"  -->
+   		<h1><spring:message code="hello1234" text="hihi"></spring:message>키가 없을 경우 기본 값 셋팅 </h1>
    		<h1><spring:message code="hello"></spring:message> </h1>
+   		<h1><spring:message code="user.welcome" arguments="${user },${msg }" 
+   		argumentSeparator=","></spring:message> </h1>
+   		<!-- argumentSeparator : 기준을 말해라 -->
    	</div>
 	<footer class="footer mt-auto py-3 bg-dark">
 	  <div class="container">
