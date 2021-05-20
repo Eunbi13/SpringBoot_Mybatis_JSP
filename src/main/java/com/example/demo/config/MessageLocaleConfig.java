@@ -22,7 +22,7 @@ public class MessageLocaleConfig implements WebMvcConfigurer{
 		return cookieLocaleResolver;
 	}
 	//interceptor(훔치기)
-	@Bean
+	
 	public LocaleChangeInterceptor changeInterceptor () {
 		LocaleChangeInterceptor changeInterceptor = new LocaleChangeInterceptor();
 		changeInterceptor.setParamName("lang");
