@@ -17,7 +17,7 @@ public class MemberVO {
 	//최소 4글자 이상 통과
 	@Size(min = 4)
 	private String password;
-	@NotEmpty
+	@NotEmpty(message = "이름을 입력하세요")//단점 영어로 안바뀜
 	private String name;
 	@Email
 	private String email;

@@ -20,7 +20,6 @@ public class MemberController {
 	@GetMapping("join")
 	public String setJoin(Model model)throws Exception{
 		model.addAttribute("memberVO", new MemberVO());
-
 		return "member/memberJoin";
 	}
 	
