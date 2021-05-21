@@ -18,6 +18,10 @@ public class MemberVO {
 	//최소 4글자 이상 통과
 	@Length(min = 4, max=10)
 	private String password;
+	
+	private String passwordCheck;
+	
+	
 	@NotEmpty(message = "이름을 입력하세요")//단점 영어로 안바뀜 이 메세지 우선순위
 	private String name;
 	@Email

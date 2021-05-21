@@ -74,10 +74,11 @@
 				<form:password class="form-control" id="password" path="password" />
 				<form:errors path="password" class="c1"></form:errors>
 			</div>
-			<!-- <div class="form-group">
-		    <label for="exampleInputPassword1">Password</label>
-		    <input type="password" class="form-control" name="password">
-		  </div> -->
+			<div class="form-group">
+		    <label for="exampleInputPassword1">PasswordCheck</label>
+		    <input type="password" class="form-control" path="passwordCheck">
+		    <form:errors path="passwordCheck" class="c1"></form:errors>
+		  </div> 
 			<div class="form-group">
 				<label for="exampleInputPassword1">Name</label>
 				<form:input class="form-control" id="name" path="name" />

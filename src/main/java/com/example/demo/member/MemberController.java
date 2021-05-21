@@ -17,6 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/member/**")
 public class MemberController {
 	
+	@Autowired
+	private MemberService memberService;
 	
 	@GetMapping("join")
 	public String setJoin(Model model)throws Exception{
@@ -29,7 +31,11 @@ public class MemberController {
 		//memberVO 안에 있는 annotiation하고 검증해보는 것 
 		//검증을 통과 하지 못할 경우 bindingResult에 담는다
 		//꼭 Valid 다음에 BindingResult가 와야한다
-		if(bindingResult.hasErrors()){//에러가 있으면 true 없으면 false
+//		if(bindingResult.hasErrors()){//에러가 있으면 true 없으면 false
+//			return "member/memberJoin";
+//		}
+		
+		if(memberService.memberErrors(memberVO, bindingResult)) {
 			return "member/memberJoin";
 		}
 		return "redirect:../";
