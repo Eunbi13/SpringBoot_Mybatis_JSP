@@ -65,9 +65,9 @@
 		<!-- FORM -->
 		<form:form id="frm" modelAttribute="memberVO" action="./join" method="post">
 			<div class="form-group">
-				<label for="exampleInputPassword1">UserName</label>
-				<form:input class="form-control" id="userName" path="userName"></form:input>
-				<!-- memberVO.userName 인것  -->
+				<label for="exampleInputPassword1">username</label>
+				<form:input class="form-control" id="username" path="username"></form:input>
+				<!-- memberVO.username 인것  -->
 			</div>
 			<div class="form-group">
 				<label for="exampleInputPassword1">Password</label>
@@ -94,11 +94,7 @@
 				<label for="exampleInputPassword1">Phone</label>
 				<form:input class="form-control" id="phone" path="phone" />
 			</div>
-			<div class="form-group">
-				<label for="exampleInputPassword1">Age</label>
-				<form:input class="form-control" id="age" path="age" />
-				<form:errors path="age"></form:errors>
-			</div>
+			
 			<button class="btn btn-primary">Submit</button>
 		</form:form>
 	</div>
