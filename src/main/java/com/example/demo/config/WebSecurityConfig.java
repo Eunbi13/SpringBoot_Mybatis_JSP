@@ -43,10 +43,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			//사용하지 않으면 기본 제공 에러 처리 방법 사용 
 				//error-handling 브런치 참고(templates/error/)
 			.exceptionHandling()
-			//1.errorPage 경로 url //자동
-			//	.accessDeniedPage("/member/error")//redirect controller에 받는 메서드 필요 
-			//2.에러 처리하는 클래스 선언 //수동 //세밀하게 조정 가능
-			//	.accessDeniedHandler(new SecurityException())//securityException객체 만들기
+//			//1.errorPage 경로 url //자동
+				.accessDeniedPage("/member/error")//redirect controller에 받는 메서드 필요 
+//			//2.에러 처리하는 클래스 선언 //수동 //세밀하게 조정 가능
+//				.accessDeniedHandler(new SecurityException())//securityException객체 만들기
 				.and()	
 			.cors().and()
 			.csrf().disable()

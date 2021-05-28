@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- jsp 페이지 선언부에 spring message를 사용 할 수 있도록 선언 -->
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>  
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<!-- spring security 에 관련된 태그 -->
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,10 +27,13 @@
 	    <a class="navbar-brand" href="#">Hidden brand</a>
 	    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+	        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link" href="/member/join">Join</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="/member/login">login</a>
 	      </li>
 	      <li class="nav-item">
 	        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -50,7 +55,34 @@
 	
 	 
    <div class="container">
-   		<!-- spring:message code="properties의 key"  -->
+		<h1>
+			<!-- 인증되었는가?로그인이 되었는가? 또는 사용자가 익명 사용자 -->
+			<sec:authorize access="isAuthenticated()">
+				로그인 성공 상태 <br>
+			</sec:authorize>
+			<sec:authorize access="!isAuthenticated()">
+				로그인 하지 않은 상태  <br>
+			</sec:authorize>
+<br>			
+			<!-- 관리자냐 일반유저냐 권한확인 -->
+			<sec:authorize access="hasRole('ROLE_ADMIN')">
+				난 관리자야! <br>
+			</sec:authorize>
+			<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MEMBER')">
+				관리자이거나 일반 유저
+			</sec:authorize>
+			<sec:authorize access="hasRole('ROLE_MEMBER')">
+				난 그냥 유저야! <br>
+			</sec:authorize>
+<br>			
+			<!-- 속성/유저정보-->
+			<sec:authentication property="name"/>님 환영합니다 <br>
+			<sec:authentication property="principal.username"/>님 환영합니다 <br>
+		</h1>
+		
+<br><br><br><br>
+
+		<!-- spring:message code="properties의 key"  -->
    		<h1><spring:message code="hello1234" text="hihi"></spring:message>키가 없을 경우 기본 값 셋팅 </h1>
    		<h1><spring:message code="hello"></spring:message> </h1>
    		<h1><spring:message code="user.welcome" arguments="${user },${msg }" 

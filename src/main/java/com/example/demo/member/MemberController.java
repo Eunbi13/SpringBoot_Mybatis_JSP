@@ -32,16 +32,14 @@ public class MemberController {
 	
 	@PostMapping("join")
 	public String join(@Valid MemberVO memberVO, Errors bindingResult)throws Exception{
-		//memberVO 안에 있는 annotiation하고 검증해보는 것 
-		//검증을 통과 하지 못할 경우 bindingResult에 담는다
-		//꼭 Valid 다음에 BindingResult가 와야한다
-//		if(bindingResult.hasErrors()){//에러가 있으면 true 없으면 false
-//			return "member/memberJoin";
-//		}
-		
-		if(memberService.memberErrors(memberVO, bindingResult)) {
+	
+		if(memberService.memberError(memberVO, bindingResult)) {
 			return "member/memberJoin";
 		}
+		
+		Long result = memberService.setJoin(memberVO);
+		System.out.println(result);
+		
 		return "redirect:../";
 	}
 	@GetMapping("login")
@@ -49,7 +47,7 @@ public class MemberController {
 		return "member/memberLogin";
 	}
 	@GetMapping("memberLoginResult")
-	public String memberLoginResult(HttpSession session)throws Exception{
+	public String memberLoginResult(HttpSession session, Authentication auth2)throws Exception{
 		//로그인 성공했을 경우 시큐리티에서 이 주소로 보내준다 그리고 그걸 컨트롤러에서 받아서 홈으로 돌아감
 		//로그인 성공했을 때 세선에 넣어주기는 하는데 이름을 몰라 찾아내야함
 		//session의 속성명들 꺼내오기
@@ -71,7 +69,13 @@ public class MemberController {
 		System.out.println("detaile: "+auth.getDetails());// WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null]
 		System.out.println("Principal: "+auth.getPrincipal());//memberVO 유저 정보
 		System.out.println("auth: "+auth.getAuthorities());//role_member 권한 정보
-	
+			//자주쓰는거 걍 위에처럼 복잡하게 안하고 바로 하게 해줌 
+		System.out.println("===========auth2===========");	//매개변수로 선언 가능
+		System.out.println("name: "+auth2.getName());//username
+		System.out.println("detaile: "+auth2.getDetails());// WebAuthenticationDetails [RemoteIpAddress=0:0:0:0:0:0:0:1, SessionId=null]
+		System.out.println("Principal: "+auth2.getPrincipal());//memberVO 유저 정보
+		System.out.println("auth: "+auth2.getAuthorities());//role_member 권한 정보
+		
 		System.out.println("로그인 성공");
 		return "redirect:/";
 	}
