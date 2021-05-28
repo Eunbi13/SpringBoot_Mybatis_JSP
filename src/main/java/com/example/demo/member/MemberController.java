@@ -2,6 +2,7 @@ package com.example.demo.member;
 
 import java.util.Enumeration;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -43,9 +44,16 @@ public class MemberController {
 		return "redirect:../";
 	}
 	@GetMapping("login")
-	public String getLogin()throws Exception{
+	public String getLogin()throws Exception{		
 		return "member/memberLogin";
 	}
+	@PostMapping("memberLogin")
+	public String getLogin(HttpServletRequest request)throws Exception{
+		System.out.println("controller message: "+request.getAttribute("message"));
+		return "member/memberLogin";
+	}
+	
+	
 	@GetMapping("memberLoginResult")
 	public String memberLoginResult(HttpSession session, Authentication auth2)throws Exception{
 		//로그인 성공했을 경우 시큐리티에서 이 주소로 보내준다 그리고 그걸 컨트롤러에서 받아서 홈으로 돌아감

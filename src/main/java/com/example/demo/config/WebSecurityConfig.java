@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.example.demo.security.LoginFail;
+
 
 @Configuration
 @EnableWebSecurity
@@ -69,7 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 				//이게 무슨 의미냐면 로그인 성공했을 때의 경우를 개발자가 지정하는 것이 아니라 
 				//스프링이 알아서 해주는데 컨트롤러에 처리용 메서드 만들어둠
 			//	.failureUrl("/member/loginFail")//로그인 실패시
-			//	.failureHandler(null)//클래스 만들어서 하는 세밀한 작업
+				.failureHandler(new LoginFail())//클래스 만들어서 하는 세밀한 작업
 				//핸들러를 사용하면 왜 문제가 생겼는지 알수 있도록 조정할 수 있다. 
 				.permitAll()
 				.and()

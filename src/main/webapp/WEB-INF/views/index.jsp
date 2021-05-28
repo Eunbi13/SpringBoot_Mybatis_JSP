@@ -36,6 +36,9 @@
 	        <a class="nav-link" href="/member/login">login</a>
 	      </li>
 	      <li class="nav-item">
+	        <a class="nav-link" href="/member/logout">logout</a>
+	      </li>
+	      <li class="nav-item">
 	        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
 	      </li>
 	    </ul>

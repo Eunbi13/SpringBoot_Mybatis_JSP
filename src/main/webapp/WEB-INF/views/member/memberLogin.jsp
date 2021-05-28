@@ -17,6 +17,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -50,9 +51,10 @@
 	    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
 	  </div>
 	</div>  
-	
-	<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
-<h1>login form</h1>
+	<h1>${message }</h1>
+<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+
+	<h1>login form</h1>
 	<form action="./login" method="post">
 		<div class="form-group">
 			<input type="text" name="username" class="form-control" placeholder="아이디">
@@ -63,7 +65,7 @@
 		<button class="btn btn-primary">button</button>
 	</form>
 	
-
+	<h1>${message }</h1>
 
 
 
