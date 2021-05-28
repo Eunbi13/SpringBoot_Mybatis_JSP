@@ -56,7 +56,7 @@ public class LoginFail implements AuthenticationFailureHandler{
 			message="비번의 유효기간이 만료되었습니다.(강제로 무조건 바꾸게 하는거)";
 			break;
 		default :
-			message="다시 시도해주세요";
+			message="다시 시도해주세요";//메세지 프로펄티스 키를 담아서 ${message}이케 받기,, 캡쳐 참조
 			break;
 		}
 		
